@@ -28,7 +28,6 @@ jobs:
       run: |
         docker build -t my-image:latest .
         docker tag my-image:latest docker.io/ajaymedi/batch8:latest
-      working-directory: Dockerfile
 
     - name: Push Docker image to Docker Hub
       run: |
@@ -37,4 +36,3 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      working-directory: Dockerfile
