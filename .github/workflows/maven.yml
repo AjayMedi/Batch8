@@ -1,10 +1,19 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Environment to deploy to
+        options:
+          - dev
+          - test
+          - model
+          - prod
+      version:
+        required: true
+        type: string
 
 jobs:
   build: 
